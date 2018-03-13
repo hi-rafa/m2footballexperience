@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Footballexperience\Stadium\Api\Data\StadiumInterface" type="Footballexperience\Stadium\Model\Stadium"/>
+    <preference for="Footballexperience\Stadium\Api\Data\StadiumSearchResultsInterface" type="Footballexperience\Stadium\Model\StadiumSearchResults"/>
+    <preference for="Footballexperience\Stadium\Api\StadiumRepositoryInterface" type="Footballexperience\Stadium\Model\StadiumRepository"/>
+
+
+    <type name="Footballexperience\Stadium\Model\ResourceModel\Stadium\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">fe_stadium</argument>
+            <argument name="resourceModel" xsi:type="string">Footballexperience\Stadium\Model\ResourceModel\Stadium</argument>
+        </arguments>
+    </type>
+</config>

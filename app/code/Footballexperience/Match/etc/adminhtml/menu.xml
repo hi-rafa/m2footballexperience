@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Footballexperience_Match::manage_matches"
+             title="Manage Matches"
+             module="Footballexperience_Match"
+             sortOrder="20"
+             parent="Footballexperience_Base::base"
+             resource="Footballexperience_Match::manage_matches"
+        />
+
+        <add id="Footballexperience_Match::matches"
+             title="Matches"
+             module="Footballexperience_Match"
+             sortOrder="10"
+             resource="Footballexperience_Match::matches"
+             parent="Footballexperience_Match::manage_matches"
+             action="fematch/match/index"
+        />
+
+
+    </menu>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Footballexperience\Team\Api\Data\TeamInterface" type="Footballexperience\Team\Model\Team"/>
+    <preference for="Footballexperience\Team\Api\Data\TeamSearchResultsInterface" type="Footballexperience\Team\Model\TeamSearchResults"/>
+    <preference for="Footballexperience\Team\Api\TeamRepositoryInterface" type="Footballexperience\Team\Model\TeamRepository"/>
+
+
+    <type name="Footballexperience\Team\Model\ResourceModel\Team\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">fe_team</argument>
+            <argument name="resourceModel" xsi:type="string">Footballexperience\Team\Model\ResourceModel\Team</argument>
+        </arguments>
+    </type>
+
+</config>

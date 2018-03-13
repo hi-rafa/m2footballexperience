@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Footballexperience_Stadium::manage_stadiums"
+             title="Manage Stadiums"
+             module="Footballexperience_Stadium"
+             sortOrder="10"
+             parent="Footballexperience_Base::base"
+             resource="Footballexperience_Stadium::manage_stadiums"
+        />
+
+        <add id="Footballexperience_Stadium::stadiums"
+             title="Stadiums"
+             module="Footballexperience_Stadium"
+             sortOrder="10"
+             resource="Footballexperience_Stadium::stadiums"
+             parent="Footballexperience_Stadium::manage_stadiums"
+             action="festadium/stadium/index"
+        />
+
+
+
+
+    </menu>
+</config>

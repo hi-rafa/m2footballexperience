@@ -1,0 +1,184 @@
+<?php
+
+namespace Footballexperience\Team\Model;
+
+use Footballexperience\Team\Api\Data\TeamExtensionInterface;
+use Footballexperience\Team\Api\Data\TeamInterface;
+use Footballexperience\Team\Model\ResourceModel\Team as ResourceModelTeam;
+use Magento\Framework\DataObject\IdentityInterface;
+use Magento\Framework\Model\AbstractExtensibleModel;
+
+class Team extends AbstractExtensibleModel implements TeamInterface, IdentityInterface
+{
+    const CACHE_TAG = 'footballexperience_base_stadium';
+    
+    /**
+     * @var string
+     */
+    protected $_cacheTag = 'footballexperience_base_stadium';
+    
+    /**
+     * @var string
+     */
+    protected $_eventPrefix = 'footballexperience_base_stadium';
+    
+    /**
+     * Initialize resource model
+     */
+    protected function _construct()
+    {
+        $this->_init(ResourceModelTeam::class);
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function getName()
+    {
+        return $this->_getData(self::NAME);
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function setName($name)
+    {
+        $this->setData(self::NAME, $name);
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function getDescription()
+    {
+        return $this->_getData(self::DESCRIPTION);
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function setDescription($description)
+    {
+        $this->setData(self::DESCRIPTION, $description);
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function getExtensionAttributes()
+    {
+        return $this->_getExtensionAttributes();
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function setExtensionAttributes(TeamExtensionInterface $extensionAttributes)
+    {
+        $this->_setExtensionAttributes($extensionAttributes);
+    }
+    
+    public function getIdentities()
+    {
+        return [self::CACHE_TAG . '_' . $this->getId()];
+    }
+    
+    /**
+     * Retrieve the city
+     *
+     * @return string
+     */
+    public function getCity() {
+        // TODO: Implement getCity() method.
+    }
+    
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return $this
+     */
+    public function setCity( $city ) {
+        // TODO: Implement setCity() method.
+    }
+    
+    /**
+     * Retrieve the country
+     *
+     * @return string
+     */
+    public function getCountry() {
+        // TODO: Implement getCountry() method.
+    }
+    
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return $this
+     */
+    public function setCountry( $country ) {
+        // TODO: Implement setCountry() method.
+    }
+    
+    /**
+     * Retrieve the capacity
+     *
+     * @return string
+     */
+    public function getCapacity() {
+        // TODO: Implement getCapacity() method.
+    }
+    
+    /**
+     * Set capacity
+     *
+     * @param string $capacity
+     *
+     * @return $this
+     */
+    public function setCapacity( $capacity ) {
+        // TODO: Implement setCapacity() method.
+    }
+    
+    /**
+     * Retrieve the map
+     *
+     * @return string
+     */
+    public function getMap() {
+        // TODO: Implement getMap() method.
+    }
+    
+    /**
+     * Set map
+     *
+     * @param string $map
+     *
+     * @return $this
+     */
+    public function setMap( $map ) {
+        // TODO: Implement setMap() method.
+}
+    
+    /**
+     * Retrieve the logo
+     *
+     * @return string
+     */
+    public function getLogo() {
+        // TODO: Implement getLogo() method.
+    }
+    
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return $this
+     */
+    public function setLogo( $logo ) {
+        // TODO: Implement setLogo() method.
+}}

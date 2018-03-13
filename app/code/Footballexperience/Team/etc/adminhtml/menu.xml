@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Footballexperience_Team::manage_teams"
+             title="Manage Teams"
+             module="Footballexperience_Team"
+             sortOrder="20"
+             parent="Footballexperience_Base::base"
+             resource="Footballexperience_Team::manage_teams"
+        />
+
+        <add id="Footballexperience_Team::teams"
+             title="Teams"
+             module="Footballexperience_Team"
+             sortOrder="10"
+             resource="Footballexperience_Team::teams"
+             parent="Footballexperience_Team::manage_teams"
+             action="feteam/team/index"
+        />
+
+
+    </menu>
+</config>
