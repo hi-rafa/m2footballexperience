@@ -44,19 +44,43 @@ class Match extends AbstractExtensibleModel implements MatchInterface, IdentityI
      *
      * @return string
      */
-    public function getDate() {
-        // TODO: Implement getDate() method.
+    public function getDate()
+    {
+        return $this->_getData(self::DATE);
     }
     
     /**
-     * Set name
+     * Set date
      *
      * @param string $date
      *
      * @return $this
      */
-    public function setDate( $date ) {
-        // TODO: Implement setDate() method.
+    public function setDate( $date )
+    {
+        $this->setData(self::DATE, $date);
+    }
+    
+    /**
+     * Retrieve the time
+     *
+     * @return string
+     */
+    public function getTime()
+    {
+        return $this->_getData(self::Time);
+    }
+    
+    /**
+     * Set time
+     *
+     * @param string $time
+     *
+     * @return $this
+     */
+    public function setTime( $time )
+    {
+        $this->setData(self::TIME, $time);
     }
     
     /**
@@ -76,8 +100,9 @@ class Match extends AbstractExtensibleModel implements MatchInterface, IdentityI
      * @param string $stadium
      * @return $this
      */
-    public function setStadium( $stadium ) {
-        // TODO: Implement setStadium() method.
+    public function setStadium( $stadium )
+    {
+        $this->setData(self::STADIUM, $stadium);
     }
     
     /**
@@ -97,5 +122,49 @@ class Match extends AbstractExtensibleModel implements MatchInterface, IdentityI
      */
     public function setExtensionAttributes( \Footballexperience\Match\Api\Data\MatchExtensionInterface $extensionAttributes ) {
     
+    }
+    
+    /**
+     * Retrieve the team1
+     *
+     * @return string
+     */
+    public function getTeam1()
+    {
+        //return Object team
+    }
+    
+    /**
+     * Set team
+     *
+     * @param string $team
+     *
+     * @return $this
+     */
+    public function setTeam1( $team )
+    {
+        $this->setData(self::TEAM1, $team);
+    }
+    
+    /**
+     * Retrieve the team2
+     *
+     * @return string
+     */
+    public function getTeam2()
+    {
+        //return object team
+    }
+    
+    /**
+     * Set team2
+     *
+     * @param string $team2
+     *
+     * @return $this
+     */
+    public function setTeam2( $team )
+    {
+        $this->setData(self::TEAM2, $team);
     }
 }

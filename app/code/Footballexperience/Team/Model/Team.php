@@ -83,33 +83,15 @@ class Team extends AbstractExtensibleModel implements TeamInterface, IdentityInt
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
     
-    /**
-     * Retrieve the city
-     *
-     * @return string
-     */
-    public function getCity() {
-        // TODO: Implement getCity() method.
-    }
-    
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return $this
-     */
-    public function setCity( $city ) {
-        // TODO: Implement setCity() method.
-    }
-    
+   
     /**
      * Retrieve the country
      *
      * @return string
      */
-    public function getCountry() {
-        // TODO: Implement getCountry() method.
+    public function getCountry()
+    {
+        return $this->_getData(self::COUNTRY);
     }
     
     /**
@@ -119,57 +101,20 @@ class Team extends AbstractExtensibleModel implements TeamInterface, IdentityInt
      *
      * @return $this
      */
-    public function setCountry( $country ) {
-        // TODO: Implement setCountry() method.
+    public function setCountry( $country )
+    {
+        $this->setData(self::COUNTRY, $country);
     }
-    
-    /**
-     * Retrieve the capacity
-     *
-     * @return string
-     */
-    public function getCapacity() {
-        // TODO: Implement getCapacity() method.
-    }
-    
-    /**
-     * Set capacity
-     *
-     * @param string $capacity
-     *
-     * @return $this
-     */
-    public function setCapacity( $capacity ) {
-        // TODO: Implement setCapacity() method.
-    }
-    
-    /**
-     * Retrieve the map
-     *
-     * @return string
-     */
-    public function getMap() {
-        // TODO: Implement getMap() method.
-    }
-    
-    /**
-     * Set map
-     *
-     * @param string $map
-     *
-     * @return $this
-     */
-    public function setMap( $map ) {
-        // TODO: Implement setMap() method.
-}
+
     
     /**
      * Retrieve the logo
      *
      * @return string
      */
-    public function getLogo() {
-        // TODO: Implement getLogo() method.
+    public function getLogo()
+    {
+        return $this->_getData(self::LOGO);
     }
     
     /**
@@ -179,6 +124,9 @@ class Team extends AbstractExtensibleModel implements TeamInterface, IdentityInt
      *
      * @return $this
      */
-    public function setLogo( $logo ) {
-        // TODO: Implement setLogo() method.
-}}
+    public function setLogo( $logo )
+    {
+        $this->setData(self::LOGO, $logo);
+    }
+
+}

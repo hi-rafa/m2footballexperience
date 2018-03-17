@@ -4,6 +4,7 @@ return array (
   array (
     'Magento_Store' => 1,
     'Footballexperience_Base' => 1,
+    'Footballexperience_Match' => 1,
     'Footballexperience_Stadium' => 1,
     'Footballexperience_Team' => 1,
     'Magento_Directory' => 1,

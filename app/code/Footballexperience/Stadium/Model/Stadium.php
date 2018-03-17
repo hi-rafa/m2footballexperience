@@ -88,8 +88,9 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return string
      */
-    public function getCity() {
-        // TODO: Implement getCity() method.
+    public function getCity()
+    {
+        return $this->_getData(self::CITY);
     }
     
     /**
@@ -99,8 +100,9 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return $this
      */
-    public function setCity( $city ) {
-        // TODO: Implement setCity() method.
+    public function setCity( $city )
+    {
+        $this->setData(self::CITY, $city);
     }
     
     /**
@@ -108,8 +110,9 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return string
      */
-    public function getCountry() {
-        // TODO: Implement getCountry() method.
+    public function getCountry()
+    {
+        return $this->_getData(self::COUNTRY);
     }
     
     /**
@@ -119,8 +122,9 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return $this
      */
-    public function setCountry( $country ) {
-        // TODO: Implement setCountry() method.
+    public function setCountry( $country )
+    {
+        $this->setData(self::COUNTRY, $country);
     }
     
     /**
@@ -128,8 +132,9 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return string
      */
-    public function getCapacity() {
-        // TODO: Implement getCapacity() method.
+    public function getCapacity()
+    {
+        return $this->_getData(self::COUNTRY);
     }
     
     /**
@@ -139,8 +144,9 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return $this
      */
-    public function setCapacity( $capacity ) {
-        // TODO: Implement setCapacity() method.
+    public function setCapacity( $capacity )
+    {
+        $this->setData(self::CAPACITY, $capacity);
     }
     
     /**
@@ -148,8 +154,9 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return string
      */
-    public function getMap() {
-        // TODO: Implement getMap() method.
+    public function getMap()
+    {
+        return $this->_getData(self::MAP);
     }
     
     /**
@@ -159,6 +166,8 @@ class Stadium extends AbstractExtensibleModel implements StadiumInterface, Ident
      *
      * @return $this
      */
-    public function setMap( $map ) {
-        // TODO: Implement setMap() method.
-}}
+    public function setMap( $map )
+    {
+        $this->setData(self::MAP, $map);
+    }
+}

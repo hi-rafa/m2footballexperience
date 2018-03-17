@@ -2,6 +2,8 @@
 
 namespace Footballexperience\Match\Setup;
 
+use Footballexperience\Stadium\Api\Data\StadiumInterface;
+use Footballexperience\Team\Api\Data\TeamInterface;
 use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -20,7 +22,7 @@ class InstallSchema implements InstallSchemaInterface
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        die('NO INSTALAR FALTA LA FOREIGN KEY');
+        
         
         $installer = $setup;
         
@@ -28,13 +30,14 @@ class InstallSchema implements InstallSchemaInterface
          * Prepare database for install
          */
         $installer->startSetup();
-        
+    
+        $connection = $installer->getConnection();
 
 
         /**
          * Create table for Match
          */
-        $tableMatch = $installer->getConnection()->newTable($installer->getTable(MatchInterface::TABLE)
+        $tableMatch = $connection->newTable($installer->getTable(MatchInterface::TABLE)
         )->addColumn(
             MatchInterface::ID,
             Table::TYPE_INTEGER,
@@ -57,40 +60,63 @@ class InstallSchema implements InstallSchemaInterface
             MatchInterface::STADIUM,
             Table::TYPE_INTEGER,
             null,
-            ['nullable' => false],
+            ['nullable' => false, 'unsigned' => true],
             'Stadium'
         )->addColumn(
             MatchInterface::TEAM1,
             Table::TYPE_INTEGER,
             null,
-            ['nullable' => false],
+            ['nullable' => false, 'unsigned' => true],
             'Team 1'
         )->addColumn(
             MatchInterface::TEAM2,
             Table::TYPE_INTEGER,
             null,
-            ['nullable' => false],
+            ['nullable' => false, 'unsigned' => true],
             'Team 1'
+        )->addForeignKey(//Match foreign key
+            $installer->getFkName(
+                MatchInterface::TABLE,
+                MatchInterface::STADIUM,
+                StadiumInterface::TABLE,
+                StadiumInterface::ID
+            ),
+            MatchInterface::STADIUM,
+            $installer->getTable(StadiumInterface::TABLE),
+            StadiumInterface::ID,
+            \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+        )->addForeignKey(//Team1 foreign key
+            $installer->getFkName(
+                MatchInterface::TABLE,
+                MatchInterface::TEAM1,
+                TeamInterface::TABLE,
+                TeamInterface::ID
+            ),
+            MatchInterface::TEAM1,
+            $installer->getTable(TeamInterface::TABLE),
+            TeamInterface::ID,
+            \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
+        )->addForeignKey(//Team2 foreign key
+            $installer->getFkName(
+                MatchInterface::TABLE,
+                MatchInterface::TEAM2,
+                TeamInterface::TABLE,
+                TeamInterface::ID
+            ),
+            MatchInterface::TEAM2,
+            $installer->getTable(TeamInterface::TABLE),
+            TeamInterface::ID,
+            \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
         )->setComment(
             'Match entity'
         );
-    
-//        ->addForeignKey(
-//        $installer->getFkName('<ChildTable>', 'entity_id', '<ParentTable>', 'entity_id'),
-//        'entity_id',
-//        $installer->getTable('<ParentTable>'),
-//        'entity_id',
-//        \Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
-//    )
-    
-    
         
-      
         
         /**
          * Prepare database after install
          */
         $installer->getConnection()->createTable($tableMatch);
+        
 //        $installer->getConnection()->createTable($tableMatch);
         $installer->endSetup();
     }
